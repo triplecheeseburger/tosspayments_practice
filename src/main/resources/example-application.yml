@@ -1,0 +1,4 @@
+payment:
+  api-url: https://api.tosspayments.com
+  client-key:
+  secret-key:
