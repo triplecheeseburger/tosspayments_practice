@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <script src="https://js.tosspayments.com/v1/payment-widget"></script>
+</head>
+<body>
+
+<div id="payment-method"></div>
+<div id="agreement"></div>
+
+<button id="payment-button">결제하기</button>
+
+<script>
+  const clientKey = 'test_ck_GjLJoQ1aVZYeD9le6xjJ3w6KYe2R';
+  const customerKey = 'testhakimcustomerkey';// 내 상점에서 고객을 구분하기 위해 발급한 고객의 고유 ID
+  const button = document.getElementById('payment-button');
+  var tossPayments = TossPayments(clientKey);
+  button.addEventListener('click', function () {
+    tossPayments.requestBillingAuth('카드', {
+      customerKey,
+      successUrl: 'http://localhost:8080/billing/success',
+      failUrl: 'http://localhost:8080/payment/fail',
+    })
+  });
+</script>
+</body>
+</body>
+</html>
